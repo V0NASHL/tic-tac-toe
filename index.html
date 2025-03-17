@@ -9,21 +9,46 @@
 </head>
 <body>
     <h1 style="font-family: Permanent Marker; font-size: 4rem; margin-bottom: 15px; padding-top: 100px;">Tic Tac Toe</h1>
-    <div id="gameboard">
-        <div class="grid" id="game">
-            <div class="cell"></div>
-            <div class="cell"></div>
-            <div class="cell"></div>
-            <div class="cell"></div>
-            <div class="cell"></div>
-            <div class="cell"></div>
-            <div class="cell"></div>
-            <div class="cell"></div>
-            <div class="cell"></div>
-        </div>
-        <div id="result"></div>
-        <button id="restart">Play Again</button>
-    </div>
+    <form id="players">
+        <div class="names">
+            <div class="name">
+                <label for="playerone"><h2>Player 1</h2></label>
+                <input type="text" name="playerone" id="playerone">
+            </div>
     
+            <div class="name">
+                <label for="playertwo"><h2>Player 2</h2></label>
+                <input type="text" name="playertwo" id="playertwo">
+            </div>
+        </div>       
+        
+        <input class="start" type="button" value="PLAY">
+    </form>
+
+    <div id="layout">
+        <div class="scoreboard">
+            <h2 id="p1name"></h2>
+            <h1 id="p1score">0</h1>
+        </div>
+        <div id="gameboard">
+            <div class="grid" id="game">
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+            </div>
+            <div id="result"></div>
+            <button id="restart">Play Again</button>
+        </div>
+        <div class="scoreboard">
+            <h2 id="p2name"></h2>
+            <h1 id="p2score">0</h1>
+        </div>
+    </div>  
 </body>
 </html>
