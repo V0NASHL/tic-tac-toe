@@ -19,3 +19,7 @@ body {
 .cell {
     border: 4px solid black;
 }
+
+.cell:hover {
+    cursor: pointer;
+}
