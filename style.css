@@ -12,9 +12,36 @@ body {
     background-image: url(assets/white-crumpled-paper-texture-background.jpg);
 }
 
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.names {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 250px;
+}
+
+.name {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .name > label > h2 {
     font-family: Caveat;
     font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.name > input {
+    font-size: 1.25rem;
+    text-align: center;
+    width: 175px;
+    border-radius: 10px;
 }
 
 #layout {
