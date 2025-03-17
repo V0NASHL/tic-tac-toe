@@ -1,5 +1,21 @@
 body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
     margin: 0;
     padding: 0;
     background-image: url(Assets/white-crumpled-paper-texture-background.jpg);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    height: 450px;
+    width: 450px;
+}
+
+.cell {
+    border: 4px solid black;
 }
