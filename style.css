@@ -21,7 +21,22 @@ body {
 #result {
     font-family: Caveat;
     font-size: 3rem;
-    padding-top: 25px;
+    padding-top: 15px;
+}
+
+#restart {
+    font-size: 1.5rem;
+    border-radius: 20px;
+    border-style: solid black;
+    margin-top: 20px;
+    height: 45px;
+    width: 150px;
+}
+
+#restart:hover {
+    cursor: pointer;
+    background-color: black;
+    color: white;
 }
 
 .grid {
