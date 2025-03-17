@@ -55,6 +55,7 @@ form {
 .start:hover {
     background-color: black;
     color: white;
+    cursor: pointer;
 }
 
 #layout {
