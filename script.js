@@ -5,6 +5,7 @@ let boardData = [
 ]
 
 let mark = 1;
+let gameOver = false;
 
 const cellElements = document.querySelectorAll(".cell");
 
@@ -25,11 +26,24 @@ function placeMarker(index) {
     if(boardData[row][col] == 0) {
         boardData[row][col] = mark;
         mark *= -1;
-        console.log(boardData)
+        drawMarkers();
     }
 
     checkResult();
 };
+
+function drawMarkers() {
+    for(let row = 0; row < 3; row++) {
+        for(let col = 0; col < 3; col++) {
+            if(boardData[row][col] == 1) {
+                cellElements[(row * 3) + col].innerHTML = '<img src="assets/cross.svg">';
+            }
+            else if(boardData[row][col] == -1) {
+                cellElements[(row * 3) + col].innerHTML = '<img src="assets/circle.svg">';
+            }
+        }
+    }
+}
 
 function checkResult() {
     for(let i = 0; i < 3; i++) {
