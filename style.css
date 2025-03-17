@@ -2,10 +2,11 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     height: 100vh;
     margin: 0;
     padding: 0;
-    background-image: url(Assets/white-crumpled-paper-texture-background.jpg);
+    background-image: url(assets/white-crumpled-paper-texture-background.jpg);
 }
 
 .grid {
