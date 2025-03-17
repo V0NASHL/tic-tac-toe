@@ -44,6 +44,19 @@ form {
     border-radius: 10px;
 }
 
+.start {
+    font-size: 3rem;
+    margin-top: 80px;
+    height: 70px;
+    width: 200px;
+    border-radius: 50px;
+}
+
+.start:hover {
+    background-color: black;
+    color: white;
+}
+
 #layout {
     display: flex;
     flex-direction: row;
