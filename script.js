@@ -9,6 +9,12 @@ let gameOver = false;
 
 const cellElements = document.querySelectorAll(".cell");
 
+const resultElement = document.getElementById("result");
+
+const restartButton = document.getElementById("restart");
+
+restartButton.style.display = "none";
+
 function Player(name, marker) {
     this.name = name;
     this.marker = marker;
@@ -18,6 +24,24 @@ cellElements.forEach((cell, index) => {
     cell.addEventListener("click", () => {
         placeMarker(index);
     });
+})
+
+restartButton.addEventListener("click", () => {
+    boardData = [
+        [0, 0, 0],
+        [0, 0, 0],
+        [0, 0, 0]
+    ]
+    mark = 1;
+    gameOver = false;
+
+    cellElements.forEach(cell => {
+        cell.innerHTML = ""
+    })
+
+    resultElement.innerText = ""
+
+    restartButton.style.display = "none";
 })
 
 function placeMarker(index) {
@@ -80,10 +104,12 @@ function checkResult() {
 function endGame(winner) {
     gameOver = true;
 
+    restartButton.style.display = "";
+
     if(winner == 0) {
-        console.log("Tie")
+        resultElement.innerText = "It's a tie!"
     }
     else {
-        console.log(`Player ${winner} wins!`);
+        resultElement.innerText = `Player ${winner} wins!`
     }
 }
