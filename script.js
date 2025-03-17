@@ -5,7 +5,22 @@ let boardData = [
 ]
 
 let mark = 1;
+
 let gameOver = false;
+
+let pOneScore = 0;
+
+let pTwoScore = 0;
+
+const gameBoard = document.getElementById("layout");
+
+const playerNames = document.getElementById("players");
+
+const pOne = document.getElementById("playerone");
+
+const pTwo = document.getElementById("playertwo");
+
+const playButton = document.querySelector(".start");
 
 const cellElements = document.querySelectorAll(".cell");
 
@@ -13,17 +28,39 @@ const resultElement = document.getElementById("result");
 
 const restartButton = document.getElementById("restart");
 
-restartButton.style.display = "none";
 
-function Player(name, marker) {
-    this.name = name;
-    this.marker = marker;
-}
+gameBoard.style.display = "none"
+
+restartButton.style.display = "none";
 
 cellElements.forEach((cell, index) => {
     cell.addEventListener("click", () => {
         placeMarker(index);
     });
+})
+
+playButton.addEventListener("click", () => {
+    const xName = document.getElementById("p1name")
+    const oName = document.getElementById("p2name")
+
+    if((pOne.value == null || pOne.value == "") && (pTwo.value == null || pTwo.value == "")) {
+        alert("Please fill in names")
+    }
+
+    else if((pOne.value == null || pOne.value == "")) {
+        alert("Please fill Player One's name")
+    }
+
+    else if((pTwo.value == null || pTwo.value == "")) {
+        alert("Please fill Player Two's name")
+    }
+
+    else {
+        xName.textContent = `${pOne.value}`
+        oName.textContent = `${pTwo.value}`
+        playerNames.style.display = "none";
+        gameBoard.style.display = ""
+    }
 })
 
 restartButton.addEventListener("click", () => {
@@ -32,7 +69,7 @@ restartButton.addEventListener("click", () => {
         [0, 0, 0],
         [0, 0, 0]
     ]
-    mark = 1;
+
     gameOver = false;
 
     cellElements.forEach(cell => {
@@ -74,11 +111,17 @@ function checkResult() {
         let rowSum = boardData[i][0] + boardData[i][1] + boardData[i][2];
         let colSum = boardData[0][i] + boardData[1][i] + boardData[2][i];
         if(rowSum == 3 || colSum == 3) {
-            endGame(1);
+            pOneScore++;
+            document.getElementById("p1score").innerText = pOneScore;
+            mark = 1;
+            endGame(`${pOne.value}`);
             return;
         }
         else if(rowSum == -3 || colSum == -3) {
-            endGame(2);
+            pTwoScore++
+            document.getElementById("p2score").innerText = pTwoScore;
+            mark *= -1;
+            endGame(`${pTwo.value}`);
             return;
         }
     }
@@ -87,11 +130,17 @@ function checkResult() {
     let diagonalSum2 = boardData[0][2] + boardData[1][1] + boardData[2][0];
     
     if(diagonalSum1 == 3 || diagonalSum2 == 3) {
-        endGame(1);
+        pOneScore++;
+        document.getElementById("p1score").innerText = pOneScore;
+        mark = 1;
+        endGame(`${pOne.value}`);
         return;
     }
     else if(diagonalSum1 == -3 || diagonalSum2 == -3) {
-        endGame(2);
+        pTwoScore++
+        document.getElementById("p2score").innerText = pTwoScore;
+        mark *= -1;
+        endGame(`${pTwo.value}`);
         return;
     }
 
@@ -110,6 +159,6 @@ function endGame(winner) {
         resultElement.innerText = "It's a tie!"
     }
     else {
-        resultElement.innerText = `Player ${winner} wins!`
+        resultElement.innerText = `${winner} wins!`
     }
 }
