@@ -88,9 +88,8 @@ function placeMarker(index) {
         boardData[row][col] = mark;
         mark *= -1;
         drawMarkers();
+        checkResult();
     }
-
-    checkResult();
 }
 
 function drawMarkers() {
