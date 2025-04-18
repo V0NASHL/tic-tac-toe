@@ -87,7 +87,7 @@ form {
     align-items: center;
 }
 
-#result {
+#result, #turn {
     font-family: Caveat;
     font-size: 3rem;
     padding-top: 15px;
