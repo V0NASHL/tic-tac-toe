@@ -28,14 +28,20 @@ const resultElement = document.getElementById("result");
 
 const restartButton = document.getElementById("restart");
 
+const playerTurn = document.getElementById("turn");
+
+
+playerTurn.style.display = "none"
 
 gameBoard.style.display = "none"
 
 restartButton.style.display = "none";
 
+
 cellElements.forEach((cell, index) => {
     cell.addEventListener("click", () => {
         placeMarker(index);
+        playerTurn.style.display = "none"
     });
 })
 
@@ -79,6 +85,8 @@ restartButton.addEventListener("click", () => {
     resultElement.innerText = ""
 
     restartButton.style.display = "none";
+
+    playerTurn.style.display = "";
 })
 
 function placeMarker(index) {
@@ -156,8 +164,10 @@ function endGame(winner) {
 
     if(winner == 0) {
         resultElement.innerText = "It's a tie!"
+        playerTurn.innerText = ""
     }
     else {
         resultElement.innerText = `${winner} wins!`
+        playerTurn.innerText = `${winner} goes first`
     }
 }
